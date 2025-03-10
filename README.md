@@ -1,32 +1,38 @@
-#  ~P Nginx Portfolio Web Server on AWS  ~@
+🚀 Nginx Portfolio Web Server on AWS 🌐
+📋 Project Overview
 
-## ** ~L Project Overview**
-This project demonstrates how to set up a **Node.js portfolio website** on an **AWS EC2 Ubuntu instance**, configure **Nginx as a reverse proxy**, and secure the site with **SSL (>
+This project demonstrates how to deploy a Node.js portfolio website on an AWS EC2 Ubuntu instance, configure Nginx as a reverse proxy, and secure the site with SSL (Let's Encrypt). The domain is managed using Hostinger DNS.
+🛠️ Technologies Used
 
-### ** M-' Technologies Used**
-- **Nginx** - Web Server & Reverse Proxy
-- **Node.js** - Backend Application
-- **AWS EC2** - Cloud Hosting
-- **Hostinger** - Domain & DNS Management
-- **Let's Encrypt** - Free SSL Certificates
+    Nginx - Web Server & Reverse Proxy
 
----
+    Node.js - Backend Application
 
-## ** ~\ Setup Guide**
+    AWS EC2 - Cloud Hosting
 
-### **1️⃣ Launch AWS EC2 Instance**
-1. Create an **Ubuntu 20.04/22.04** EC2 instance.
-2. Configure **Security Groups** to allow:
-   - **SSH (22)**
-   - **HTTP (80)**
-   - **HTTPS (443)**
+    Hostinger - Domain & DNS Management
 
----
+    Let's Encrypt - Free SSL Certificates
 
-### **2️⃣ Install Node.js & Clone Portfolio Repository**
+🛠️ Setup Guide
+1️⃣ Launch AWS EC2 Instance
+
+    Create an Ubuntu EC2 instance.
+
+    Configure Security Groups to allow:
+
+        SSH (Port 22)
+
+        HTTP (Port 80)
+
+        HTTPS (Port 443)
+
+2️⃣ Install Node.js & Clone Portfolio Repository
+
 Run the following commands in your EC2 instance:
+bash
+Copy
 
-```bash
 sudo apt update
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
@@ -36,26 +42,32 @@ cd Portfolio-Website
 npm install
 npm start
 
-3️. Set Up Nginx as a Reverse Proxy
+3️⃣ Set Up Nginx as a Reverse Proxy
 
-Install Nginx:
+    Install Nginx:
+    bash
+    Copy
 
-sudo apt install nginx -y
+    sudo apt install nginx -y
 
-Configure Nginx:
+    Configure Nginx:
+    bash
+    Copy
 
-sudo nano /etc/nginx/sites-enabled/default
+    sudo nano /etc/nginx/sites-enabled/default
 
-Paste the following configuration:
+    Paste the following configuration:
+    nginx
+    Copy
 
-server {
-    listen 80;
-    server_name souravdas.xyz www.souravdas.xyz;
+    server {
+        listen 80;
+        server_name souravdas.xyz www.souravdas.xyz;
 
-    root /var/www/html;
-    index index.html;
+        root /var/www/html;
+        index index.html;
 
-    location / {
+        location / {
             try_files $uri /index.html;
         }
     }
@@ -81,7 +93,7 @@ server {
     bash
     Copy
 
-    nslookup yourdomain.com
+    nslookup souravdas.xyz
 
 5️⃣ Secure Website with SSL (HTTPS)
 
@@ -106,30 +118,26 @@ server {
 
     Test in your browser:
 
-        Visit https://yourdomain.com (should show a secure padlock 🔒).
+        Visit: souravdas.xyz
 
-🔮 Future Improvements
+🚀 Future Improvements
 
-    Enable automatic SSL renewal:
-    bash
-    Copy
+1️⃣ Enable automatic SSL renewal:
+bash
+Copy
 
-    sudo certbot renew --dry-run
+sudo certbot renew --dry-run
 
-    Implement CI/CD for auto-deployment.
+2️⃣ Implement CI/CD for auto-deployment.
 
-    Enable Nginx caching for better performance.
-
+3️⃣ Enable Nginx caching for better performance.
 🤝 Contribution & License
 
     Contributions are welcome! Create a pull request if you have improvements.
 
     Licensed under MIT License.
-
 📧 Contact
 
 For any queries, reach out:
 
     Email: sdhriday77@gmail.com
-
-This revised version is more polished, easier to follow, and includes proper formatting for code blocks and commands. It also removes redundant information and improves the overall flow of the document.

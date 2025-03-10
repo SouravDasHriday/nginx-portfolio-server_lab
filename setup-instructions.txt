@@ -1,0 +1,97 @@
+
+     sudo apt update
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+     export NVM_DIR="$HOME/.nvm"
+     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+     nvm install 20
+     node --version
+     npm --version
+  
+     git clone https://github.com/jaiswaladi246/Portfolio-Website.git
+     ls
+     cd Portfolio-Website/
+     ls
+     npm install
+     npm start
+     get apt update
+     apt update
+     ls
+     cd Portfolio-Website/
+     npm start
+     ls
+   ----------------------------------------
+     npm run build
+     export NODE_OPTIONS="--max-old-space-size=4096"
+     npm run build
+     ps aux | grep node
+     nvm --version
+     nvm ls-remote
+     nvm install 18
+     nvm use 18
+     node -v
+     npm run build
+--------------------------------------------------
+    ##after facing issue with cpu+ran overload , chearing ram and use sawp ram##
+    free -h
+    sudo fallocate -l 4G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+    npx update-browserslist-db@latest
+    npm install
+    export NODE_OPTIONS="--max-old-space-size=8192"
+    npm run build
+---------------------------------------------------
+    sudo apt install nginx
+    cd
+    cd /var/www/html/
+    ls
+    sudo cp -r /home/ubuntu/Portfolio-Website/build/* .
+    ls
+    cd /etc/nginx/
+    ls
+    cd sites-enabled/
+    ls
+    cat default
+    sudo rm default
+    sudo vim default
+    sudo systemctl restart nginx
+    sudo systemctl restart nginx.service
+    sudo nginx -t
+    cat default
+    sudo vim default
+    cat default
+    sudo nginx -t
+    sudo systemctl restart nginx.service
+    sudo systemctl status nginx
+###After adding dns A record in hostinger testing####
+    nslookup souravdas.xyz
+###SSL Certificate create#####
+    sudo apt install certbot python3-certbot-nginx
+    sudo certbot --nginx -d souravdas.xyz -d www.souravdas.xyz
+    sudo vim default
+    cat default
+------------------------------------------------------------
+###Result of default after adding domain name in server_name instate of ip ###
+ubuntu@ip-172-31-7-43:/etc/nginx/sites-enabled$ cat default
+server {
+        listen 80;
+
+        server_name souravdas.xyz www.souravdas.xyz;
+
+        root /var/www/html;
+        index index.html;
+
+        location /{
+                try_files $uri /index.html;
+        }
+}
+
+------------------------------------------------------------
+   sudo nginx -t
+   sudo systemctl restart nginx
+## After adding domain name in default file , creating ssl certificate again ###
+   sudo certbot --nginx -d souravdas.xyz -d www.souravdas.xyz
+

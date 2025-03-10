@@ -6,15 +6,15 @@ This project demonstrates how to deploy a Node.js portfolio website on an AWS EC
 
 🛠️ Technologies Used
 
-    Nginx - Web Server & Reverse Proxy
+    * Nginx - Web Server & Reverse Proxy
 
-    Node.js - Backend Application
+    * Node.js - Backend Application
 
-    AWS EC2 - Cloud Hosting
+    * AWS EC2 - Cloud Hosting
 
-    Hostinger - Domain & DNS Management
+    * Hostinger - Domain & DNS Management
 
-    Let's Encrypt - Free SSL Certificates
+    * Let's Encrypt - Free SSL Certificates
 
 🛠️ Setup Guide
 
@@ -25,45 +25,34 @@ This project demonstrates how to deploy a Node.js portfolio website on an AWS EC
     Configure Security Groups to allow:
 
         SSH (Port 22)
-
         HTTP (Port 80)
-
         HTTPS (Port 443)
 
 2️⃣ Install Node.js & Clone Portfolio Repository
 
 Run the following commands in your EC2 instance:
 
-sudo apt update
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-
-export NVM_DIR="$HOME/.nvm"
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-nvm install 20
-
-git clone https://github.com/jaiswaladi246/Portfolio-Website.git
-
-cd Portfolio-Website
-
-npm install
-
-npm start
+    sudo apt update
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    nvm install 20
+    git clone https://github.com/jaiswaladi246/Portfolio-Website.git
+    cd Portfolio-Website
+    npm install
+    npm start
 
 
 3️⃣ Set Up Nginx as a Reverse Proxy
 
     Install Nginx:
     
-    sudo apt install nginx -y
+        sudo apt install nginx -y
 
     Configure Nginx:
     
-    sudo nano /etc/nginx/sites-enabled/default
+        sudo nano /etc/nginx/sites-enabled/default
 
     Paste the following configuration:
 
@@ -81,8 +70,8 @@ npm start
 
     Save and restart Nginx:
 
-    sudo nginx -t
-    sudo systemctl restart nginx
+        sudo nginx -t
+        sudo systemctl restart nginx
 
 
 4️⃣ Configure Domain Name (Hostinger)
@@ -97,22 +86,22 @@ npm start
 
     Test the DNS configuration:
 
-    nslookup souravdas.xyz
+        nslookup souravdas.xyz
 
 5️⃣ Secure Website with SSL (HTTPS)
 
     Install Certbot:
 
-    sudo apt install certbot python3-certbot-nginx -y
+        sudo apt install certbot python3-certbot-nginx -y
 
     Generate an SSL certificate:
 
-    sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+    s   udo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 
     Verify SSL:
 
-    sudo nginx -t
-    sudo systemctl restart nginx
+        sudo nginx -t
+        sudo systemctl restart nginx
 
     Test in your browser----Visit: souravdas.xyz
 
@@ -120,7 +109,7 @@ npm start
 
 1️⃣ Enable automatic SSL renewal:
 
-sudo certbot renew --dry-run
+        sudo certbot renew --dry-run
 
 📧 Contact
 
